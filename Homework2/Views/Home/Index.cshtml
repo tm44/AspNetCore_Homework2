@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Contact>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="id">Id</a>
+                </th>
+                                <th>
+                    <a asp-action="Index" asp-route-sortOrder="name">Name</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="city">City</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="state">State</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="phone">Phone</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(c => contact.Id)</td>
+                    <td>@Html.DisplayFor(c => contact.Name)</td>
+                    <td>@Html.DisplayFor(c => contact.City)</td>
+                    <td>@Html.DisplayFor(c => contact.State)</td>
+                    <td>@Html.DisplayFor(c => contact.Phone)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
